@@ -1,0 +1,40 @@
+= mvn-archetype-android
+
+This Archetype creates an Android project that can be built with Maven, Eclipse, Gradle, or Android Studio.
+
+== Why?
+
+Why *another* Maven Android archetype? There may be better ones out there... I just wanted one I could keep up-to-date _and_ that I could tailor to make projects that work on both Eclipse and Android Studio.
+
+== Usage
+
+Just run `mvn archetype:generate` as usual. Here's an example.
+
+----
+mvn archetype:generate \
+	-DarchetypeGroupId=com.darwinsys \
+	-DarchetypeArtifactId=mvn-archetype-android \
+	-DarchetypeVersion=1.0.0-SNAPSHOT \
+	-DgroupId=com.example123 \
+	-DartifactId=android123 \
+	-Dversion=1.0.0-SNAPSHOT \
+	-DinteractiveMode=false
+----
+
+This can be run using `demo.sh` under *Nix, but you'll want to change the groupId and artifactId
+before running.
+
+== PreReqs for Generated Project
+
+For Maven or Eclipse, you must have extracted the Android SDK into Maven format using the
+maven-android-installer.
+
+For Eclipse, as above, plus, you must have AndMore and M2E in your install (get it from Help->Eclipse Market Client).
+
+For Gradle or Android Studio, it may "just work".
+
+== Arguments
+
+When running `mvn archetype:generate` you can optionally change the package name with e.g., `-Dpackage=com.example`.
+The default package name is derived from the `groupId` parameter.
+
