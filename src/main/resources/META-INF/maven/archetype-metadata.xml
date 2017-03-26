@@ -23,6 +23,8 @@
 				<include>*.xml</include>
 				<include>.classpath</include>
 				<include>.project</include>
+				<include>build.gradle</include>
+				<include>gradle/**</include>
 			</includes>
 		</fileSet>
 		<fileSet filtered="true" packaged="true" encoding="UTF-8">
