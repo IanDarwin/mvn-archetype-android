@@ -8,6 +8,8 @@ Why *another* Maven Android archetype? There may be better ones out there... I j
 
 == Usage
 
+First, until I get this onto Maven Central, just grab the source project and do `mvn install`.
+
 Just run `mvn archetype:generate` as usual. Here's an example.
 
 ----
