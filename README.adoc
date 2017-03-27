@@ -46,7 +46,8 @@ maven-android-installer.
 
 For Eclipse, as above, plus, you must have AndMore and M2E in your install (get it from Help->Eclipse Market Client).
 
-For Gradle or Android Studio, it may "just work".
+For Gradle or Android Studio, it may "just work", though it will demand to upgrade the project if you've
+been using your Studio installation for more than 2.5 hours.
 
 == Arguments
 
