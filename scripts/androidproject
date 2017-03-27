@@ -1,0 +1,36 @@
+#!/bin/sh
+
+USAGE="$0 [-g groupId][-p packageName][-d parentDirectory] artfactName"
+
+function usage {		# give usage message, and exit
+	echo "Usage: ${USAGE}" 2>&1
+	exit 1
+}
+
+GROUP_ID=com.example
+ARTIFACT_ID=demo54
+
+while getopts "d:g:p:v" opt 
+do 
+	case "$opt" in 
+		v)	set +x;;
+		d)	cd ${OPTARG} || exit 1;;
+		g)	GROUP_ID=${OPTARG};;
+		p)	PKG=-Dpackage=${OPTARG};;
+		*)	usage;;
+	esac
+done
+shift `expr $OPTIND - 1`		 # leave just filenames
+
+mvn archetype:generate \
+	-DgroupId=${GROUP_ID} \
+	-DartifactId=${ARTIFACT_ID} \
+	-Dversion=1.0.0-SNAPSHOT \
+	-DarchetypeGroupId=com.darwinsys \
+	-DarchetypeArtifactId=mvn-archetype-android \
+	-DarchetypeVersion=1.0.0-SNAPSHOT \
+	-DinteractiveMode=false
+
+cd ${ARTIFACT_ID}
+
+mvn package
