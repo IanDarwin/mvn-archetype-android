@@ -23,8 +23,21 @@ mvn archetype:generate \
 	-DinteractiveMode=false
 ----
 
-This can be run using `demo.sh` under *Nix, but you'll want to change the groupId and artifactId
+This can be run using `scripts/basic.sh` under *Nix, but you'll want to change the groupId and artifactId
 before running.
+
+The file `scripts/androidproject` uses the shell builtin getopts to parse arguments
+and can be run as follows:
+
+----
+scripts/androidproject [-g groupId][-p packageName][-d parentDirectory] artfactName
+----
+
+e.g.,
+
+----
+scripts/androidproject -d /tmp -g com.example demoproject54
+----
 
 == PreReqs for Generated Project
 
