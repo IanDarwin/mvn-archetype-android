@@ -4,7 +4,7 @@ This Archetype creates an Android project that can be built with Maven, Eclipse,
 
 == Why?
 
-Why *another* Maven Android archetype? There may be better ones out there... I just wanted one I could keep up-to-date _and_ that I could tailor to make projects that work on both Eclipse and Android Studio.
+Why *another* Maven Android archetype? There may be better ones out there... I just wanted one I could keep up-to-date _and_ that I could tailor to make projects that work on all of Eclipse, Maven, Gradle and Android Studio.
 
 == Usage
 
