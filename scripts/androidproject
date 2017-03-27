@@ -8,29 +8,34 @@ function usage {		# give usage message, and exit
 }
 
 GROUP_ID=com.example
-ARTIFACT_ID=demo54
 
-while getopts "d:g:p:v" opt 
-do 
-	case "$opt" in 
+while getopts "d:g:op:v" opt
+do
+	case "$opt" in
 		v)	set +x;;
 		d)	cd ${OPTARG} || exit 1;;
 		g)	GROUP_ID=${OPTARG};;
+		o)	OFFLINE=-o;;
 		p)	PKG=-Dpackage=${OPTARG};;
 		*)	usage;;
 	esac
 done
 shift `expr $OPTIND - 1`		 # leave just filenames
+ARTIFACT_ID=${1}
 
+rm -r ${ARTIFACT_ID}
 mvn archetype:generate \
+	${OFFLINE} \
 	-DgroupId=${GROUP_ID} \
 	-DartifactId=${ARTIFACT_ID} \
 	-Dversion=1.0.0-SNAPSHOT \
 	-DarchetypeGroupId=com.darwinsys \
 	-DarchetypeArtifactId=mvn-archetype-android \
 	-DarchetypeVersion=1.0.0-SNAPSHOT \
+	${PKG} \
 	-DinteractiveMode=false
+
 
 cd ${ARTIFACT_ID}
 
-mvn package
+mvn ${OFFLINE} package
